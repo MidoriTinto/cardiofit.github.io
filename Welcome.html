@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CardioFit - Welcome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="loginThesis1.css" rel="stylesheet" type="text/css">-->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+ <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://localhost/css/loginThesis1.css" type = "text/css">
+
+  <!-- Optional theme 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+
+    </head>
+
+    <body>
+      <!--collapsable navigation bar-->
+       <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+         
+             <a class="navbar-brand" href="#"></a></div><!--set up brand on one side-->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav navbar-right"> <!--navigation bar on the right which shows sign up and login-->
+                        <li><a href=""></span></a></li>
+                       <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+                </ul><!--ends navigation bar on the right which shows sign up and login-->
+            </div><!--ends collapse navbar-->
+         </div><!--ends navbar-->
+      </nav><!--end of bar navigation-->
+
+
+
+     
+<div class="container-fluid">
+<br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron">
+               <img class="jumbotronwidth " width="200" height="136" alt="img-responsive" src="Heart-Healthy.png">
+                 <h1>CardioFit</h1>
+                <p>...helping you manage your heart.</p>
+                <p><a href="RegisterThesis1.html" class="btn btn-primary btn-lg">Register<i class="glyphicon glyphicon-chevron-right"></i></a>
+                </p>
+                </p>
+            </div><!--ends jumbotron-->
+        </div><!--ends col-->
+
+        
+        <div class="col-md-4">
+          <h2>Log In</h2>
+            <hr>
+          <form class="form-horizontal" id="loginForm" role="form" action="LoginPOST.php" method="POST">
+              <div class="form-group">
+                  <label for="email" class="col-md-3 control-label">Email</label>
+                      <div class="col-md-9">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                      </div>
+              </div>
+              <div class="form-group">
+                  <label for="inputPassword1" class="col-md-3 control-label">Password</label>
+                     <div class="col-md-9">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                     </div>
+               </div>
+              
+           <div class="form-group">
+                   <div class="col-md-offset-3 col-md-9">
+                    
+                            </label>
+                            <br>
+                            <p><a id="myAnchor" name="fpass" href="https://johnsmith:smith123@www.example.com">Forgotten password?</a></p>
+                    
+                  </div>
+            </div>
+            <div class="form-group">
+                  <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" name="submit" id="loginbtn" class="btn btn-inverse">Log in</button>
+                    <!--<a href="http://localhost/CardioTool/OptionThesis2.html"></a>-->
+                  </div>
+           </div>
+          </form> 
+        </div>
+    </div>
+</div>
+
+  
+
+     <div class="container-fluid" style="margin-top:75px">
+          <div class="row" style="background-color:#eee;" >
+                <footer class="footer pull-right">
+                      <p class"pull-left"> Created by DdeStegmann</p>
+                </footer><!--ends footer-->
+          </div><!--ends row-->
+    </div><!--ends div-->
+ </div><!--ends orange block-->
+      
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+ <!--form validation javascript-->
+        <script>
+        function validateText(id)
+
+          {
+
+            if ($("#" + id).val() ==null || $("#"+id).val()=="")
+
+              {
+                /* to show an alert text that information is missing alert(id + "Validation Error!"); */
+
+                var div = $("#" + id).closest("div");//this chooses the specific div where usrname is
+                  div.addClass("has-error");//this highlights the box if NO info is enter or has an error
+
+                  return false;
+              }
+
+                 else 
+              {
+
+                var div = $("#" + id).closest("div");//if info has been entered then
+                  div.removeClass("has-error");// the box will not be highlighted as having an error 
+
+                  return true;
+              }
+              
+          }
+            $(document).ready(
+
+                function()
+
+                { $("#loginbtn").click(function()
+
+                    {
+                      /*use (!) if boolean is false, if booleans
+                      is true then no need for (!)*/
+                      if(!validateText("email"))//if there is no value then it will return false (see above"has error")
+                      {
+                        return false;
+                      }
+
+                      if(!validateText("password"))
+                      {
+
+                        return false;
+                      }
+
+                       if(!validateText("password"))
+                      {
+
+                        return false;
+                      }
+
+
+                      $("form#loginForm").submit();// when all fields has been filled in then form will be submitted 
+
+                      });
+                }
+
+              );
+
+        </script>  
+    
+  </body>
+</html>
+
+  <!--form validation javascript-->
+        <!--<script>
+      function validateText(id)
+
+          {
+
+            if ($("#" + id).val() ==null || $("#"+id).val()=="")
+
+              {
+                /* to show an alert text that information is missing alert(id + "Validation Error!"); */
+
+                var div = $("#" + id).closest("div");//this chooses the specific div where usrname is
+                  div.addClass("has-error");//this highlights the box if NO info is enter or has an error
+
+                  return false;
+              }
+
+                 else 
+              {
+
+                var div = $("#" + id).closest("div");//if info has been entered then
+                  div.removeClass("has-error");// the box will not be highlighted as having an error 
+
+                  return true;
+              }
+              
+          }
+            $(document).ready(
+
+                function()
+
+                { $("#loginbtn").click(function()
+
+                    {
+                      /*use (!) if boolean is false, if booleans
+                      is true then no need for (!)*/
+                      if(!validateText("email"))//if there is no value then it will return false (see above"has error")
+                      {
+                         return false;
+                        //false;
+                      }
+
+                      if(!validateText("password"))
+
+                      {
+                          return false;
+                      }
+
+                       if(!validateText("password"))//if there is no value then it will return false (see above"has error")
+                      {
+                         return  false;
+                      }
+                     
+
+                      $("form#loginForm").submit();// when all fields has been filled in then form will be submitted 
+
+                      });
+                }
+
+              );
+
+        </script> 
+    
+  </body>
+</html>

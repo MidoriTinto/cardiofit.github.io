@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CardioFit - Enter New Med</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="loginThesis1.css" rel="stylesheet" type="text/css">-->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+ <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+   <link rel="stylesheet" href="http://localhost/css/loginThesis1.css" type = "text/css">
+ 
+  <!-- Optional theme 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+
+    </head>
+
+    <body>
+         <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+          <a class="navbar-brand" href="#">CardioFit</a></div><!--set up brand on one side-->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                 <ul class="nav navbar-nav">
+                      <li class="active" style:"color:#ffffff"><a href="OptionThesis2.html">Home</a></li><!--home: takes me to a screen with options-->
+                      <li><a href="DiaryUnderConstruction.html">Diary</a></li><!--Diary will take me to the diet section-->
+                      <li class="dropdown"><!--dropdown menu corresponding to the MEDS sections-->
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDS<span class="caret"></span></a>
+                        <ul class="dropdown-menu"><!--dropdown will show me 2 options:enter new, and my meds-->
+                           <li><a style="color: #000000" href="MedSummaryTaken.php">Today</a></li>
+                           <li><a style="color: #000000" href="MedEnterNewThesis.html">Enter New</a></li>
+                           <li><a style="color: #000000" href="MedTakenPOSTonly.php">My Meds</a></li>
+                        </ul><!--end of list-->
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Health Stats<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a style="color: #000000" href="HealthStatsThesis.html">Enter new</a></li>
+                              <li><a style="color: #000000" href="HealthStatsThesis.php">My Health Stats</a></li>
+                              <li><a style="color: #000000" href="ReportOptions.html">Progress</a></li>
+                          </ul> 
+                      </li>  
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Notifications<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a style="color: #000000"   href="#">Reminders</a></li>
+                             <li><a style="color: #000000" href="ContactsAddNewThesis1.html">Contacts - Enter New</a></li>
+                             <li><a style="color: #000000" href="hContactsSummaryThesis.php">MyContacts</a></li>
+                          </ul>  
+                     </li>   
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Info<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a  style="color: #000000" href="GeneralInfo.html">NHS choices</a></li>
+                        </ul> 
+                     </li>  
+                    
+                    </ul>
+                      <ul class="nav navbar-nav navbar-right"> <!--navigation bar on the right which shows sign up and login-->
+                          <li><a href="LogoutPOST.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                      </ul><!--ends navigation bar on the right which shows sign up and login-->
+              </div><!--ends collapse navbar-->
+         </div><!--ends navbar-->
+      </nav><!--end of bar navigation-->
+
+ <div class="container">
+<br>
+</div>
+
+     <!--Jumbotron-->
+<div class="container">
+<br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+               <img class="jumbotronwidth " align="center" width="200" height="136" alt="img-responsive" src="http://localhost/CardioTool/Heart-Healthy.png">
+                 <h2 align="center">My Meds</h2>
+                <p></p>
+                <div></div>
+                <!--<p><a href="http://localhost/CardioTool/Welcome.html" class="btn btn-primary btn-md"><i class="glyphicon glyphicon-plus"></i>Add New</a>
+                </p>-->
+              <!--</p>-->
+            </div><!--ends jumbotron-->
+        </div><!--ends col-->
+        <!--starts col 2-->
+        <div class="col-md-6">
+                          <h2> Enter New</h2>
+                          <hr>
+                <form class="form-horizontal" role="form" name="entermed" id="entermed" action="http://localhost/CardioTool/MedEnterNewThesisPOST.php" method="POST">
+                       <div class="form-group">
+                           <label class="control-label col-sm-2" for="name">Name:</label>
+                               <div class="col-sm-10">
+                                      <input type="name" name="name" class="form-control" id="name" placeholder="name"><br>
+                                </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-2" for="dosage">Dosage:</label>
+                                  <div class="col-sm-5">
+                                      <input type="name" name="dosage" class="form-control" id="dosage" placeholder="dosage"><br>
+                                </div>
+                                <div class="col-sm-5"> 
+                                      <!--<input type="units" name="units" class="form-control" id="units" placeholder="units"><br>-->
+                                        <select multiple="multiple" id="units" name="units">
+                                          <option value="ml">ml</option>
+                                          <option value="mg">mg</option>
+                                          <option value="teaspoon">teaspoon</option>
+                                          <option value="drops">drops</option>
+                                          <option value="tablet">tablet</option>
+                                          <option value="caplet">caplet</option>
+                                        </select>
+                                </div>
+                                 
+                        </div>
+
+                        <div class="form-group">
+                           <label class="control-label col-sm-2" for="name">Start Date:</label>
+                               <div class="col-sm-10">
+                                      <input type="date" name="start_date" class="form-control" id="date" placeholder="date"><br>
+                                </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-2" for="days">Days:</label>
+                                <div class="col-sm-4"> 
+                                        <input type="days" name="days" class="form-control" id="days" placeholder="days"><br>
+                                        <!--<select multiple name="days" >
+                                            <option value="sunday">Select days:</option>
+                                          <option value="monday">Monday</option>
+                                          <option value="tuesday">Tuesday</option>
+                                          <option value="wednesday">Wednesday</option>
+                                          <option value="thursday">Thursday</option>
+                                          <option value="friday">Friday</option>
+                                          <option value="saturday">Saturday</option>
+                                          <option value="sunday">Sunday</option>
+                                        </select>-->
+                                </div>
+                            <label class="control-label col-sm-2" for="days">Time:</label>
+                                <div class = "col-sm-4">
+                                  <input type="time_taken" name="time_taken" class="form-control" id="time_taken" placeholder="time"><br>
+                                        <!--<select multiple name="time">
+                                          <option value="">Select time:</option>
+                                          <option value="1am">01.00</option>
+                                          <option value="2am">02.00</option>
+                                          <option value="3am">03.00</option>
+                                          <option value="4am">04.00</option>
+                                          <option value="5am">05.00</option>
+                                          <option value="6am">06.00</option>
+                                          <option value="7am">07.00</option>
+                                          <option value="8am">08.00</option>
+                                          <option value="9am">09.00</option>
+                                          <option value="10am">10.00</option>
+                                          <option value="11am">11.00</option>
+                                          <option value="12pm">midday</option>
+                                          <option value="13pm">13.00</option>
+                                          <option value="14pm">14.00</option>
+                                          <option value="15pm">15.00</option>
+                                          <option value="16pm">16.00</option>
+                                          <option value="17pm">17.00</option>
+                                          <option value="18pm">18.00</option>
+                                          <option value="19pm">19.00</option>
+                                          <option value="20pm">20.00</option>
+                                          <option value="21pm">21.00</option>
+                                          <option value="22pm">22.00</option>
+                                          <option value="23pm">23.00</option>
+                                          <option value="12am">midnight</option>
+                                        </select>-->
+                                </div>
+                      </div>
+                        <div class="form-group"></div>
+        
+                        <div class="form-group">
+                           <label class="control-label col-sm-2" for="notes">Notes:</label>
+                               <div class="col-sm-10">
+                                      <textarea class="form-control" name="notes" rows="3" id="notes" placeholder=""></textarea><br>
+                                </div>
+                        </div>
+
+                        <div class="form-group">        
+                              <div class="col-md-12 ">
+                                        <button id="submit" name="submit" type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-save"></span>Submit</button>
+                                        <button id="delete" name="delete" type="delete" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-remove-sign"></span>Delete</button> 
+                              </div>
+                        </div>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+<div class="form-group"></div>
+      <!--start container-fluid 2-->      
+<div class="container-fluid">
+       <div class="row" style="background-color:#eee;" >
+            <footer class="footer pull-right">
+                <p class"pull-left"> Created by DdeStegmann</p>
+            </footer>
+        </div>
+</div><!--ends container-fluid 2-->
+    
+      
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+</div>
+</div>
+
+
+   <!--form validation javascript-->
+        <script>
+
+        function validateText(id)
+
+          {
+
+            if ($("#" + id).val() ==null || $("#"+id).val()=="")
+
+              {
+                /* to show an alert text that information is missing alert(id + "Validation Error!"); */
+
+                var div = $("#" + id).closest("div");//this chooses the specific div where username is
+                  div.addClass("has-error");//this highlights the box if NO info is enter or has an error
+
+                  return false;
+              }
+
+                 else 
+              {
+
+                var div = $("#" + id).closest("div");//if info has been entered then
+                  div.removeClass("has-error");// the box will not be highlighted as having an error 
+
+                  return true;
+              }
+              
+          }
+
+            $(document).ready(function()
+
+                { $('#units').multiselect();
+
+                  $("#submit").click(function()
+
+                    {
+                      /*use (!) if boolean is false, if boolean
+                      is true then no need for (!)*/
+                      if(!validateText("name"))//if there is no value then it will return false (see above"has error")
+                      {
+                        return false;
+                      }
+
+                      if(!validateText("dosage"))
+                      {
+
+                        return false;
+                      }
+                       
+
+                      if(!validateText("date"))
+                      {
+
+                        return false;
+                      }
+                       if(!validateText("days"))
+                      {
+
+                        return false;
+                      }
+                       if(!validateText("time_taken"))
+                      {
+
+                        return false;
+                      }
+                      
+                      $("form#entermed").submit();// when all fields has been filled in then form will be submitted 
+
+                   });
+                });
+
+       
+   
+        // $(document).ready(function(){
+
+                  //$("button").click(function()//#delete
+
+                 // {
+
+                   //$("input").remove();
+
+                 // });
+            //});
+        </script>
+  </body>
+</html>

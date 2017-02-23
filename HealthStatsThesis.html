@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CardioFit - My Health Stats</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="loginThesis1.css" rel="stylesheet" type="text/css">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!--own style.css-->
+  <link rel="stylesheet" href="http://localhost/css/loginThesis1.css" type = "text/css">
+
+
+  <!-- Optional theme 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+
+
+     <script type="text/javascript">
+
+        function computeBMI() {
+            // user inputs
+            var height = Number(document.getElementById("height").value);
+            var heightunits = document.getElementById("heightunits").value;
+            var weight = Number(document.getElementById("weight").value);
+            var weightunits = document.getElementById("weightunits").value;
+
+
+            //Convert all units to metric
+            if (heightunits == "inches") height /= 39.3700787;
+            if (weightunits == "lb") weight /= 2.20462;
+
+            //Perform calculation
+
+            //        var BMI = weight /Math.pow(height, 2)*10000;
+            var BMI = Math.round(weight / Math.pow(height, 2) * 10000);
+
+            //Display result of calculation
+            document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+
+            var output = Math.round(BMI * 100) / 100
+            if (output < 18.5)
+                document.getElementById("comment").innerText = "Underweight";
+            else if (output >= 18.5 && output <= 25)
+                document.getElementById("comment").innerText = "Normal";
+            else if (output >= 25 && output <= 30)
+                document.getElementById("comment").innerText = "Obese";
+            else if (output > 30)
+                document.getElementById("comment").innerText = "Overweight";
+            // document.getElementById("answer").value = output; 
+        }
+    </script>
+       
+    </head>
+
+    <body>
+     
+      <!--collapsable navigation bar-->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+          <a class="navbar-brand" href="#">CardioFit</a></div><!--set up brand on one side-->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                 <ul class="nav navbar-nav">
+                      <li class="active" style:"color:#ffffff"><a href="OptionThesis2.html">Home</a></li><!--home: takes me to a screen with options-->
+                      <li><a href="DiaryUnderConstruction.html">Diary</a></li><!--Diary will take me to the diet section-->
+                      <li class="dropdown"><!--dropdown menu corresponding to the MEDS sections-->
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDS<span class="caret"></span></a>
+                        <ul class="dropdown-menu"><!--dropdown will show me 2 options:enter new, and my meds-->
+                           <li><a style="color: #000000" href="MedSummaryTaken.php">Today</a></li>
+                           <li><a style="color: #000000" href="MedEnterNewThesis.html">Enter New</a></li>
+                           <li><a style="color: #000000" href="MedTakenPOSTonly.php">My Meds</a></li>
+                        </ul><!--end of list-->
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Health Stats<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a style="color: #000000" href="HealthStatsThesis.html">Enter new</a></li>
+                              <li><a style="color: #000000" href="HealthStatsThesis.php">My Health Stats</a></li>
+                              <li><a style="color: #000000" href="ReportOptions.html">Progress</a></li>
+                          </ul> 
+                      </li>  
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Notifications<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a style="color: #000000" href="#">Reminders</a></li>
+                             <li><a style="color: #000000" href="ContactsAddNewThesis1.html">Contacts - Enter New</a></li>
+                             <li><a style="color: #000000" href="ContactsSummaryThesis.php">MyContacts</a></li>
+                          </ul>  
+                     </li>   
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Info<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a  style="color: #000000" href="GeneralInfo.html">NHS choices</a></li>
+                        </ul> 
+                     </li>  
+                    
+                    </ul>
+                      <ul class="nav navbar-nav navbar-right"> <!--navigation bar on the right which shows sign up and login-->
+                          <li><a href="LogoutPOST.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                      </ul><!--ends navigation bar on the right which shows sign up and login-->
+              </div><!--ends collapse navbar-->
+         </div><!--ends navbar-->
+      </nav><!--end of bar navigation-->
+     
+       <!--Jumbotron-->
+<div class="container">
+<br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+               <img class="jumbotronwidth " width="200" height="136" alt="img-responsive" src="Heart-Healthy.png">
+                 <h2>My Health Stats</h2>
+                <p></p>
+                <div></div>
+               
+            </div><!--ends jumbotron-->
+        </div><!--ends col-->
+        <!--starts col 2-->
+        <div class="col-md-6">
+                        <h2> Enter New </h2>
+                          <hr>
+                <form class="form-horizontal" name="healthForm" id="healthForm" role="form" action="HealthStatsThesisPOST.php" method="POST">
+                  <div class="form-group" style="margin-right:200px, margin-left:70px">
+                      <label class="control-label col-md-2" for="date">Date:</label>
+                        <div class="col-md-8">
+                          <input type="date" name="date" class="form-control" id="date" placeholder="enter date"><br>
+                        </div>
+                        <div class="col-md-2">
+                          
+                        </div>
+                      </div>
+                   <div class="form-group">
+                      <label class="control-label col-md-2" for="weight">Weight:</label>
+                        <div class="col-md-8">
+                            <input type="weight" name ="weight" class="form-control" id="weight" placeholder="enter weight"></div>
+                         <div class="col-md-2">   
+                            <label>[Kg]</label><br><br>
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                       <label class="control-label col-md-2" for="bmi">BMI:</label>
+                          <div class="col-md-8"> 
+                               <input type="bmi" name ="bmi" class="form-control" id="bmi" placeholder="enter bmi"><br>
+                         </div>
+                         <div class="col-md-2">
+                                      <a data-toggle="modal" href="#tcModal">Calculate BMI</a>
+                          </div> 
+                    </div>
+                    <div class="form-group">
+                       <label class="control-label col-md-2" for="bp">BP:</label>
+                          <div class="col-md-8"> 
+                               <input type="bp" name ="blood_pressure" class="form-control" id="bp" placeholder="enter blood pressure">
+                          </div>
+                          <div class="col-md-2">
+                                      <label>[mm/Hg]</label><br>
+                          </div>  
+                    </div>
+                     <div class="form-group">
+                       <label class="control-label col-md-2" for="bp">BG:</label>
+                          <div class="col-md-8"> 
+                               <input type="bg" name ="blood_glucose" class="form-control" id="bg" placeholder="enter blood glucose">
+                          </div>
+                          <div class="col-md-2">
+                                      <label>[mg/L]</label><br>
+                          </div>  
+                    </div>
+                    <div class="form-group"> 
+                       <label class="control-label col-md-2" for="waist">Waist:</label>
+                          <div class="col-md-8"> 
+                               <input type="waist" class="form-control" id="waist" name="waist" placeholder="waist">
+                          </div>
+                          <div class="col-md-2">
+                                   <label>cm</label><br>
+                          </div>      
+                      </div>
+                     <br>
+
+                         <div class="form-group">        
+                              <div class="col-md-12 ">
+                                        <button id="submit" name="submit" type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-save"></span>Submit</button>
+                                        <button id="delete" name="delete" type="delete" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-remove-sign"></span>Delete</button> 
+                              </div>
+                        </div>
+                        </div>  
+
+               </form>
+            </div>
+          </div>
+      </div><!--ends containerfluid 1-->
+ <!-- Modal -->
+  <div class="modal fade" id="tcModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Calculate Your BMI</h4>
+        </div>
+        <div class="modal-body">
+    
+    <h1>Body Mass Index Calculator</h1>
+    <p>Enter your height: <input type="text" id="height"/>
+        <select type="multiple" id="heightunits">
+            <option value="metres" selected="selected">metres</option>
+            <option value="inches">inches</option>
+        </select>
+         </p>
+    <p>Enter your weight: <input type="text" id="weight"/>
+        <select type="multiple" id="weightunits">
+            <option value="kg" selected="selected">kilograms</option>
+            <option value="lb">pounds</option>
+        </select>
+    </p>
+    <input type="submit" value="computeBMI" onclick="computeBMI();">
+    <h1>Your BMI is: <span id="output">?</span></h1>
+
+    <h2>This means you are: <span id="comment"> ?</span> </h2> 
+ 
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+ 
+      <!--start container-fluid 2-->      
+<div class="container-fluid">
+       <div class="row" style="background-color:#eee;" >
+            <footer class="footer pull-right">
+                <p class"pull-left"> Created by DdeStegmann</p>
+            </footer>
+        </div>
+</div><!--ends container-fluid 2-->
+    
+  
+      
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+         <!--form validation javascript-->
+        <script>
+
+        function validateText(id)
+
+          {
+
+            if ($("#" + id).val() ==null || $("#"+id).val()=="")
+
+              {
+                /* to show an alert text that information is missing alert(id + "Validation Error!"); */
+
+                var div = $("#" + id).closest("div");//this chooses the specific div where usrname is
+                  div.addClass("has-error");//this highlights the box if NO info is enter or has an error
+
+                  return false;
+              }
+
+                 else 
+              {
+
+                var div = $("#" + id).closest("div");//if info has been entered then
+                  div.removeClass("has-error");// the box will not be highlighted as having an error 
+
+                  return true;
+              }
+              
+          }
+            $(document).ready(
+
+                function()
+
+                { $("#submit").click(function()
+
+                    {
+                      /*use (!) if boolean is false, if booleans
+                      is true then no need for (!)*/
+                     // if(!validateText("date"))//if there is no value then it will return false (see above"has error")
+                      //{
+                       // return false;
+                      /*}*/
+
+                      if(!validateText("date"))
+                      {
+
+                        return false;
+                      }
+                      
+                       if(!validateText("weight"))
+                      {
+
+                        return false;
+                      }
+
+                      if(!validateText("bmi"))
+                      {
+
+                        return false;
+                      }
+                      
+                       if(!validateText("bp"))
+                      {
+
+                        return false;
+                      }
+                      
+                       if(!validateText("bg"))
+                      {
+
+                        return false;
+                      }
+                     
+                       if(!validateText("waist"))
+                      {
+
+                        return false;
+                      }
+
+
+                      $("form#healthForm").submit();// when all fields has been filled in then form will be submitted 
+
+                      });
+                }
+
+              );
+</script>
+
+    </div>
+  </body>
+</html>

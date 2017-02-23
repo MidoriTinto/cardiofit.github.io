@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CardioFit - Add Contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="loginThesis1.css" rel="stylesheet" type="text/css">-->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+ <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://localhost/css/loginThesis1.css" type = "text/css">
+
+  <!-- Optional theme 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+
+    </head>
+
+    <body> 
+   <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+          <a class="navbar-brand" href="#">CardioFit</a></div><!--set up brand on one side-->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                 <ul class="nav navbar-nav">
+                      <li class="active" style:"color:#ffffff"><a href="OptionThesis2.html">Home</a></li><!--home: takes me to a screen with options-->
+                      <li><a href="DiaryUnderConstruction.html">Diary</a></li><!--Diary will take me to the diet section-->
+                      <li class="dropdown"><!--dropdown menu corresponding to the MEDS sections-->
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDS<span class="caret"></span></a>
+                        <ul class="dropdown-menu"><!--dropdown will show me 2 options:enter new, and my meds-->
+                           <li><a style="color: #000000" href="MedSummaryTaken.php">Today</a></li>
+                           <li><a style="color: #000000" href="MedEnterNewThesis.html">Enter New</a></li>
+                           <li><a style="color: #000000" href="MedTakenPOSTonly.php">My Meds</a></li>
+                        </ul><!--end of list-->
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Health Stats<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a style="color: #000000" href="HealthStatsThesis.html">Enter new</a></li>
+                              <li><a style="color: #000000" href="HealthStatsThesis.php">My Health Stats</a></li>
+                              <li><a style="color: #000000" href="ReportOptions.html">Progress</a></li>
+                          </ul> 
+                      </li>  
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Notifications<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a style="color: #000000" href="#">Reminders</a></li>
+                             <li><a style="color: #000000" href="ContactsAddNewThesis1.html">Contacts - Enter New</a></li>
+                             <li><a style="color: #000000" href="ContactsSummaryThesis.php">MyContacts</a></li>
+                          </ul>  
+                     </li>   
+                     <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Info<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                             <li> <a  style="color: #000000" href="GeneralInfo.html">NHS choices</a></li>
+                        </ul> 
+                     </li>  
+                    
+                    </ul>
+                      <ul class="nav navbar-nav navbar-right"> <!--navigation bar on the right which shows sign up and login-->
+                          <li><a href="LogoutPOST.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                      </ul><!--ends navigation bar on the right which shows sign up and login-->
+              </div><!--ends collapse navbar-->
+         </div><!--ends navbar-->
+      </nav><!--end of bar navigation-->
+
+
+     <!--Jumbotron-->
+<div class="container">
+<br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+               <img class="jumbotronwidth " width="200" height="136" alt="img-responsive" src="Heart-Healthy.png">
+                 <h2 align="center">My Contacts</h2>
+                <p></p>
+                <div></div>
+             
+            </div><!--ends jumbotron-->
+        </div><!--ends col-->
+        <!--starts col 2-->
+        <div class="col-md-6">
+                          <h2> Enter New </h2>
+                          <hr>
+                    <form name="contact" id="contactForm" role="form" class="form-horizontal" action="ContactsAddNewThesis1POST.php" method="POST">
+                        <div class="form-group">
+                           <label class="control-label col-sm-2" for="name">Name:</label>
+                              <div class="col-sm-10">
+                                <input type="name" name="name" class="form-control" id="name" placeholder="name"><br>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                       <label class="control-label col-sm-2" for="description">Surname:</label>
+                          <div class="col-sm-10"> 
+                               <input type="surname" name="surname" class="form-control" id="surname" placeholder="surname"><br>
+                         </div>
+                    </div>
+
+                    <div class="form-group"> 
+                      <label class="control-label col-sm-2" for="phone">Tel:</label>
+                          <div class="col-sm-10"> 
+                               <input type="phone" name="phone" class="form-control" id="phone" placeholder="phone"><br>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                       <label class="control-label col-sm-2" for="pwd">Email:</label>
+                          <div class="col-sm-10"> 
+                               <input type="email" name="email" class="form-control" id="email" placeholder="email"><br>
+                          </div>  
+                    </div>
+                    <div class="form-group">        
+                                        <div class="col-md-12 ">
+                                        <button id="submit" name="submit" type="submit" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-save"></span>Submit</button>
+                                        <button id="delete" name="delete" type="delete" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-remove-sign"></span>Delete</button> 
+                                        </div>
+                                        
+                                </div>
+                      
+        </form><!--ends form-->
+    </div>
+</div>
+</div>
+
+
+
+     <div class="container-fluid" style="margin-top:90px;">
+          <div class="row" style="background-color:#eee;" >
+                <footer class="footer pull-right">
+                      <p class"pull-left"> Created by DdeStegmann</p>
+                </footer><!--ends footer-->
+          </div><!--ends row-->
+    </div><!--ends div-->
+ </div><!--ends orange block-->
+<div class="row">
+</div>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</div>
+  </div>
+
+   <!--form validation javascript-->
+        <script>
+
+        function validateText(id)
+
+          {
+
+            if ($("#" + id).val() ==null || $("#"+id).val()=="")
+
+              {
+                /* to show an alert text that information is missing alert(id + "Validation Error!"); */
+
+                var div = $("#" + id).closest("div");//this chooses the specific div where username is
+                  div.addClass("has-error");//this highlights the box if NO info is enter or has an error
+
+                  return false;
+              }
+
+                 else 
+              {
+
+                var div = $("#" + id).closest("div");//if info has been entered then
+                  div.removeClass("has-error");// the box will not be highlighted as having an error 
+
+                  return true;
+              }
+              
+          }
+            $(document).ready(
+
+                function()
+
+                { $("#submit").click(function()
+
+                    {
+                      /*use (!) if boolean is false, if boolean
+                      is true then no need for (!)*/
+                      if(!validateText("name"))//if there is no value then it will return false (see above"has error")
+                      {
+                        return false;
+                      }
+
+                      if(!validateText("surname"))
+                      {
+
+                        return false;
+                      }
+
+                      if(!validateText("phone"))
+                      {
+
+                        return false;
+                      }
+                       if(!validateText("email"))
+                      {
+                        return false;
+                      }
+
+
+                      $("form#contactForm").submit();// when all fields has been filled in then form will be submitted 
+
+                   });
+                }
+
+              );
+        </script>
+        
+    
+  </body>
+</html>
